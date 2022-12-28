@@ -27,3 +27,4 @@ dist-ssr
 
 # Environmental variables
 .env
+.vercel
