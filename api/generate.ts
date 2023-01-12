@@ -11,24 +11,34 @@ const openai = new OpenAIApi(
 const basePrompt = buildBasePrompt();
 
 const handler = async (req: NextApiRequest, res: NextApiResponse) => {
-    const userInput = (req.body?.userInput || req.query?.userInput).trim();
+    const userInput = (req.body?.userInput || req.query?.userInput)?.trim();
     if (!userInput) {
         res.status(200).json({
             output: "No command supplied.",
         });
+
+        return;
     }
 
-    const prompt = `${basePrompt}\nEnglish: ${userInput}\nOutput: `;
-    const completions = await openai.createCompletion({
-        model: "text-davinci-003",
-        prompt,
-        temperature: 0.7,
-        max_tokens: 250,
-    });
+    try {
+        const prompt = `${basePrompt}\nEnglish: ${userInput}\nOutput: `;
+        const completions = await openai.createCompletion({
+            model: "text-davinci-003",
+            prompt,
+            temperature: 0.7,
+            max_tokens: 250,
+        });
 
-    res.status(200).json({
-        output: completions.data.choices.pop(),
-    });
+        res.status(200).json({
+            output: completions.data.choices.pop(),
+        });
+    } catch (e) {
+        res.status(200).json({
+            output: {
+                text: "OpenAI key invalid.",
+            },
+        });
+    }
 };
 
 export default handler;
