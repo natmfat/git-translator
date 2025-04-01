@@ -1,7 +1,7 @@
 import { NextApiRequest, NextApiResponse } from "next";
 import { Configuration, OpenAIApi } from "openai";
 
-import buildBasePrompt from "../buildBasePrompt";
+import { buildBasePrompt } from "../buildBasePrompt";
 
 const openai = new OpenAIApi(
   new Configuration({

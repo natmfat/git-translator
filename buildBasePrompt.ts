@@ -11,16 +11,16 @@ const examples = [
     "git add .",
   ],
   [
-    "Clone the remote repository https://github.com/nathan-pham/machine-learning into the current directory",
-    "git clone https://github.com/nathan-pham/machine-learning .",
+    "Clone the remote repository https://github.com/natmfat/machine-learning into the current directory",
+    "git clone https://github.com/natmfat/machine-learning .",
   ],
   [
-    "Add an new origin https://github.com/nathan-pham/git-translator.git",
-    "git remote add origin https://github.com/nathan-pham/git-translator.git",
+    "Add an new origin https://github.com/natmfat/git-translator.git",
+    "git remote add origin https://github.com/natmfat/git-translator.git",
   ],
 ];
 
-const buildBasePrompt = () => {
+export const buildBasePrompt = () => {
   let basePrompt = "";
   for (const [english, output] of examples) {
     basePrompt += `English: ${english}\nOutput: ${output}\n`;
@@ -28,5 +28,3 @@ const buildBasePrompt = () => {
 
   return `Translate the English sentences into their appropriate git command(s).\n${basePrompt}`.trim();
 };
-
-export default buildBasePrompt;

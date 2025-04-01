@@ -3,11 +3,11 @@ export const Footer = () => (
     Made by{" "}
     <a
       className="underline"
-      href="https://nathanpham.me"
+      href="https://natmfat.com"
       target="_blank"
       rel="noreferrer"
     >
-      Nathan Pham
+      Nathan
     </a>{" "}
     with 💖
   </footer>
