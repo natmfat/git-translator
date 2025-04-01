@@ -4,4 +4,4 @@ Learn how to efficiently manage your codebase and master the power of version co
 
 ## Screenshots
 
-![](2022-12-28-15-29-20.png)
+![](preview.png)
